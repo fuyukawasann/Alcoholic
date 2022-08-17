@@ -1,3 +1,5 @@
+#define LOW 340
+#define HIGH 680
 //int buttonPin = 3;
 int mq3Pin = A5;   // MQ-3 센서핀을 아두이노 보드의 A5 핀으로 설정
 
@@ -18,6 +20,3 @@ void loop(){
 //    Serial.println("Disread");
 //  }
 }
-
-
-//수정 테스트 1 - 준서
