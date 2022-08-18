@@ -1,5 +1,5 @@
-#define LOW 340
-#define HIGH 680
+#define aLOW 340
+#define aHIGH 680
 //int buttonPin = 3;
 int mq3Pin = A5;   // MQ-3 센서핀을 아두이노 보드의 A5 핀으로 설정
 
