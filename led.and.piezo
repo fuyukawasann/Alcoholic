@@ -1,0 +1,91 @@
+  int green = 8;
+  int yellow = 9;
+  int red = 10;
+  int speaker = 3; //3으로 변경
+  int mq3Pin = A3; //5에서 3로 변경
+  int mode = 12;
+
+void setup() {  
+  Serial.begin(9600);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(A3, INPUT); //5->3
+  pinMode(12, INPUT_PULLUP); 
+}
+void loop() {   
+  
+  float conc = analogRead(A3); //5->3
+
+ if(digitalRead(mode) == 0){
+
+  if(conc <= x){              // 맥주
+ 
+    digitalWrite(8, HIGH);  
+    digitalWrite(9, LOW);
+    digitalWrite(10, LOW);  
+ 
+    tone(12, 262, 2000);     
+    delay(1000);             
+    noTone(12);            
+ 
+  } else if(conc <=y){      // 소주
+    digitalWrite(8, LOW);  
+    digitalWrite(9, HIGH);
+    digitalWrite(10, LOW) 
+
+    tone(12, 349, 2000);     
+    delay(1000);             
+    noTone(12);     
+      
+  } else{                            // 양주
+   digitalWrite(8, LOW);
+   digitalWrite(9, LOW);
+   digitalWrite(10, HIGH);
+
+   tone(12, 494, 2000);     
+   delay(1000);             
+   noTone(12); 
+  }                    
+
+  digitalWrite(8, LOW);  
+  digitalWrite(9, LOW);
+  digitalWrite(10, LOW); 
+ }
+ else{
+
+  if(conc <= x){              //정상
+ 
+    digitalWrite(8, HIGH);  
+    digitalWrite(9, LOW);
+    digitalWrite(10, LOW);  
+ 
+    tone(12, 262, 2000);     
+    delay(1000);             
+    noTone(12);            
+ 
+  } else if(conc <=y){      //경고
+    digitalWrite(8, LOW);  
+    digitalWrite(9, HIGH);
+    digitalWrite(10, LOW) 
+
+    tone(12, 349, 2000);     
+    delay(1000);             
+    noTone(12);     
+       
+  } else{                            //위험
+   digitalWrite(8, LOW);
+   digitalWrite(9, LOW);
+   digitalWrite(10, HIGH);
+
+   tone(12, 494, 2000);     
+   delay(1000);             
+   noTone(12); 
+  }                    
+
+  digitalWrite(8, LOW);  
+  digitalWrite(9, LOW);
+  digitalWrite(10, LOW); 
+ }
+}  
