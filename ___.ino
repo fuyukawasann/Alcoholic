@@ -132,6 +132,16 @@ void setup(){
 void loop(){
   unsigned long val = analogRead(mq3Pin);
   Serial.println(val);   // MQ-3 센서 출력값을 시리얼 모니터로 출력
+  if(digitalRead(mode) == 0){
+    if(flag == 0){
+      flag = 1;
+      toggle_state = !toggle_state;
+      }
+    }
+  else{
+    flag = 0;
+  }//토글 스위치 모드
+
   delay(1000);
   
   if(digitalRead(mode) == 0){
